@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+  this is the comment page
+
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'candidate:comment' form.instance.id %}" method="POST">
+  {% csrf_token %}
+  {% for field in form %}
+    {{ field.errors }}
+    {{ field.label }} {{ field }}
+  {% endfor %}
+  <input type="submit" value="votes">
+</form>
+{% endblock %}

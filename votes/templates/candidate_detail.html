@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the detail page
+{% endblock %}
+
+{% block body  %}
+
+
+  First name: {{ candidate.fname }}<br />
+  Last name: {{ candidate.lname }}<br />
+  Birthday: {{ candidate.bday }}<br />
+  Plaform: {{ candidate.platform }}<br />
+
+  {% for comment in candidate.comments.all %}
+    Comments: {{ comment.cois_acntent }}
+  {% endfor %}
+
+  <br />
+
+
+  <a href="{% url 'candidate:update' candidate.id%}"><input type="submit" value="Update"></a>
+    <a href="{% url 'candidate:comment' candidate.id%}"><input type="submit" value="Vote"></a>
+
+{% endblock %}

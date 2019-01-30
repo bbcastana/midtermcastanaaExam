@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  Candidates
+{% endblock %}
+
+{% block body %}
+<h5> CANDIDATES FOR PASSING SIR BILLONES : </h5>
+<center>
+  <div class ="collection">
+  <ol>
+  {% for candidate in candidates %}
+
+  <li >
+       <a class="collection-item"  href="{% url 'candidate:detail' candidate.id %}">  {{ candidate.fname }} </a>
+   </li>
+
+
+  {% endfor %}
+  </ol>
+</div>
+
+<a  class= "waves-effect waves-lights btn" style="position:center" href="{% url 'candidate:create' %}">  <input type="submit" value="">Add Candidate &nbsp; &nbsp; </a></center>
+{% endblock %}
